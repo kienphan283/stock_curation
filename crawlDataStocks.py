@@ -10,7 +10,7 @@ csv_directory = r'C:\IT\STOCKS_LAB.UIT\exportData\allDataStocks'
 os.makedirs(csv_directory, exist_ok=True)  # Tạo thư mục nếu nó chưa tồn tại
 
 #đọc file csv chứa các mã stocks
-stock_data = pd.read_csv(r'C:\IT\STOCKS_LAB.UIT\exportData\allNameStock.csv')
+stock_data = pd.read_csv(r'C:\IT\STOCKS_LAB.UIT\exportData\tbt_stock')
 #.unique(): Trích xuất các giá trị duy nhất từ cột
 symbols = stock_data['code'].unique()
 
@@ -43,18 +43,6 @@ for symbol in symbols:
                 if 'Data' in json_data and 'Data' in json_data['Data']:
                     df = json_normalize(json_data['Data'], record_path='Data')
                  
-               
-                    # df.rename(columns = {
-                    #                     'GiaDongCua': 'close_price',           
-                    #                     'KhoiLuongKhopLenh': 'volumn',         
-                    #                     'GiaMoCua': 'open_price',              
-                    #                     'GiaCaoNhat': 'high_price',            
-                    #                     'GiaThapNhat': 'low_price'             
-                    #                 }, inplace=True)
-
-            
-                    
-                    # selected_columns = df[['Ngay', 'GiaDongCua', 'KhoiLuongKhopLenh', 'GiaMoCua', 'GiaCaoNhat', 'GiaThapNhat']]
 
                     if first_page:
                         df.to_csv(f, index=False, header=True)

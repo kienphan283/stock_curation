@@ -44,7 +44,7 @@ def fetch_data():
         connection = mysql.connector.connect(
             host="localhost", 
             user="root", 
-            password="ngantran", 
+            password="", 
             database="stock_lab.uit"
         )
         cursor = connection.cursor() #cau  lenh de  thuc thi sql
